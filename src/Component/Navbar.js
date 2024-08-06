@@ -5,11 +5,12 @@ function Navbar() {
   return (
     
     <div>
-      <nav>
+      <nav className='main-nav'>
         {/* <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/contact'>Contact</Link> */}
         <NavLink to='/'>Home</NavLink>
+        <NavLink to='/products'>Products</NavLink>
         <NavLink to='/about'>About</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
       </nav>

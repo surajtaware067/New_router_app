@@ -6,6 +6,9 @@ import About from './Component/About';
 import Contact from './Component/Contact';
 import Navbar from './Component/Navbar';
 import PageNotFound from './Component/PageNotFound';
+import Products from './Component/Products';
+import Shirts from './Component/Shirts';
+import Jeans from './Component/Jeans';
 
 function App() {
   const navigate = useNavigate();
@@ -17,37 +20,40 @@ function App() {
   }
   const NavigateToWhere = () => {
     let name = 'Suraj';
-    if (name == 'suraj')
-    {
+    if (name == 'suraj') {
       navigate('/about');
     }
-    else
-    {
+    else {
       navigate('/contact')
     }
 
-}
+  }
 
-return (
-  <>
-    <Navbar />
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='*' element={<PageNotFound/>}/>
-    </Routes>
-    {/* <button onClick={ ()=>navigate('/about')}>About</button> */}
-    {/* <button onClick={()=>NavigateToAbout()}>About</button>
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='*' element={<PageNotFound />} />
+        <Route path='/products' element={<Products />}>
+          <Route index element={<Shirts/>}></Route>
+          <Route path='shirts' element={<Shirts />} />
+          <Route path='jeans' element={<Jeans />} />
+        </Route>
+      </Routes>
+      {/* <button onClick={ ()=>navigate('/about')}>About</button> */}
+      {/* <button onClick={()=>NavigateToAbout()}>About</button>
     <button onClick={ ()=>navigate('/contact')}>Contact</button> */}
-    <button onClick={() => NavigateTo('/about')}>About</button>
-    <button onClick={() => NavigateTo('/contact')}>Contact</button>
-    <button onClick={() => NavigateToWhere()}>Click Me</button> 
-    <button onClick={()=>navigate(-1)}>Go Back</button>
+      <button onClick={() => NavigateTo('/about')}>About</button>
+      <button onClick={() => NavigateTo('/contact')}>Contact</button>
+      <button onClick={() => NavigateToWhere()}>Click Me</button>
+      <button onClick={() => navigate(-1)}>Go Back</button>
 
-  </>
+    </>
 
-);
+  );
 }
 
 export default App;
